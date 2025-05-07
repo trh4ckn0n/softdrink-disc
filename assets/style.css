@@ -10,7 +10,7 @@ html, .css-18e3th9 {
 }
 
 /* Titres en néon rouge */
-h1, h2, h3, .css-10trblm {
+h1, .css-10trblm {
     color: #ff073a !important;
     text-shadow: 0 0 10px #ff073a, 0 0 20px #ff073a;
 }
@@ -31,6 +31,11 @@ h2, h3 {
     text-shadow: 0 0 5px #fff000;
 }
 
+.sidebar-hacker h1 {
+    color: #0080ff;
+    text-shadow: 0 0 5px #ff0000;
+}
+
 .sidebar-hacker ul {
     list-style: none;
     padding-left: 0;
@@ -47,7 +52,7 @@ h2, h3 {
 }
 
 .sidebar-hacker a:hover {
-    text-shadow: 0 0 5px #0f0;
+    text-shadow: 0 0 5px #0080ff;
 }
 
 /* Fond général */
