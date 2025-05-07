@@ -1,7 +1,18 @@
 body {
-    background-color: #000;
-    color: #0f0;
+    background-color: #000000 !important;
+    color: #39ff14 !important;
     font-family: 'Courier New', monospace;
+}
+
+/* Texte général */
+html, .css-18e3th9 {
+    color: #39ff14 !important;
+}
+
+/* Titres en néon rouge */
+h1, h2, h3, .css-10trblm {
+    color: #ff073a !important;
+    text-shadow: 0 0 10px #ff073a, 0 0 20px #ff073a;
 }
 
 .sidebar-hacker {
@@ -32,4 +43,69 @@ body {
 
 .sidebar-hacker a:hover {
     text-shadow: 0 0 5px #0f0;
+}
+
+/* Fond général */
+
+
+/* Paragraphes néon vert */
+p, .stMarkdown, .css-1cpxqw2 {
+    color: #00ffcc !important;
+    text-shadow: 0 0 5px #00ffcc;
+}
+
+/* Boutons en mode cyber */
+button {
+    background-color: #ff073a !important;
+    color: #000 !important;
+    border-radius: 0px !important;
+    border: 2px solid #39ff14 !important;
+    text-shadow: none !important;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #39ff14 !important;
+    color: #000 !important;
+    border: 2px solid #ff073a !important;
+}
+
+/* Sidebar effet terminal */
+.css-1d391kg {
+    background-color: #0a0a0a !important;
+    border-left: 5px solid #ff073a;
+}
+
+.css-1d391kg h1 {
+    color: #ff073a !important;
+    text-shadow: 0 0 6px #ff073a;
+}
+
+/* Encadrés / containers */
+.css-1v3fvcr, .css-1avcm0n {
+    background-color: #111111 !important;
+    border: 1px solid #ff073a !important;
+    box-shadow: 0 0 10px #ff073a;
+}
+
+/* Image captions */
+.css-1kyxreq {
+    color: #f0f0f0;
+    font-style: italic;
+}
+
+/* Animation néon sur la zone d'intro */
+.intro {
+    color: #00ffcc;
+    text-shadow: 0 0 10px #00ffcc;
+    animation: blink 1.2s infinite alternate;
+}
+
+@keyframes blink {
+    from {
+        text-shadow: 0 0 5px #00ffcc;
+    }
+    to {
+        text-shadow: 0 0 15px #00ffcc, 0 0 25px #00ffcc;
+    }
 }
