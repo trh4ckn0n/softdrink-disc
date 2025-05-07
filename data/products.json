@@ -1,16 +1,37 @@
 [
     {
-        "name": "Red Bull Classic",
-        "desc": "L'original. Pour hacker toute la nuit.",
-        "price": "2.50",
-        "flavor": "peach",
-        "image": "images/redbull.jpeg"
+        "name": "Red Bull SEA BLUE EDITION",
+        "desc": "Saveur océane pour hacker sans limite.",
+        "price": "2.00",
+        "flavor": "SEA BLUE",
+        "image": "images/redbull_sea_blue.jpg"
     },
     {
-        "name": "FreePalestine Energy",
-        "desc": "Boisson énergisante solidaire. 100% de résistance.",
-        "price": "3.00",
-        "flavor": "juneberry",
-        "image": "images/palestine.jpeg"
+        "name": "Red Bull SUMMER EDITION",
+        "desc": "L'énergie estivale, fraîche comme un exploit réussi.",
+        "price": "2.00",
+        "flavor": "SUMMER",
+        "image": "images/redbull_summer.jpg"
+    },
+    {
+        "name": "Red Bull APRICOT EDITION",
+        "desc": "Abricot énergique pour l'élite des Anonymous.",
+        "price": "2.00",
+        "flavor": "APRICOT",
+        "image": "images/redbull_apricot.jpg"
+    },
+    {
+        "name": "FreePalestine Energy - Pêche Blanche",
+        "desc": "Une gorgée pour la cause, booste la paix avec style.",
+        "price": "1.50",
+        "flavor": "Pêche Blanche",
+        "image": "images/palestine_peche.jpg"
+    },
+    {
+        "name": "FreePalestine Energy - Orange",
+        "desc": "L'orange qui libère les esprits et rafraîchit les hacktivistes.",
+        "price": "1.20",
+        "flavor": "Orange",
+        "image": "images/palestine_orange.jpg"
     }
 ]
