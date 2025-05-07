@@ -34,18 +34,18 @@ def save_orders(data):
 # --- SIDEBAR ---
 st.sidebar.image("images/redbull.png", width=120)
 st.sidebar.markdown("## Menu")
-page = st.sidebar.radio("Navigation", ["PrÃ©sentation", "Produits", "Commander", "Admin"])
+page = st.sidebar.radio("Navigation", ["Présentation", "Produits", "Commander", "Admin"])
 
 # --- PAGES ---
-if page == "PrÃ©sentation":
+if page == "Présentation":
     st.title("Bienvenue chez Trhacknon Energy")
     st.markdown("""
         <div class='intro'>
-        **Boissons Ã©nergÃ©tiques rebelles pour les esprits libres.**  
-        PropulsÃ© par un style hacker & lâ€™esprit de rÃ©sistance.
+        **Boissons énergétiques rebelles pour les esprits libres.**  
+        Propulsé par un style hacker & l’esprit de résistance.
         </div>
     """, unsafe_allow_html=True)
-    st.image("images/palestine_drink.png", caption="Soutenez l'Ã©nergie libre")
+    st.image("images/palestine_drink.png", caption="Soutenez l'énergie libre")
 
 elif page == "Produits":
     st.header("Nos Boissons")
@@ -56,8 +56,8 @@ elif page == "Produits":
             st.image(p["image"], width=100)
         with col2:
             st.markdown(f"### {p['name']}")
-            st.markdown(f"GoÃ»t : **{p['flavor']}**")
-            st.markdown(f"**Prix : {p['price']}â‚¬**")
+            st.markdown(f"Goût : **{p['flavor']}**")
+            st.markdown(f"**Prix : {p['price']}€**")
             st.markdown("---")
 
 elif page == "Commander":
@@ -70,7 +70,7 @@ elif page == "Commander":
             orders = load_orders()
             orders[choice] = orders.get(choice, 0) + 1
             save_orders(orders)
-            st.success("Commande envoyÃ©e !")
+            st.success("Commande envoyée !")
             msg = f"Nouvelle commande de {nom} pour une **{choice}**"
             requests.get(f"https://api.telegram.org/bot{bot_token}/sendMessage?chat_id={chat_id}&text={msg}")
         else:
@@ -80,13 +80,13 @@ elif page == "Admin":
     st.header("Interface Admin")
     password = st.text_input("Mot de passe admin", type="password")
     if password == "trhackadmin":
-        st.success("AccÃ¨s autorisÃ©")
+        st.success("Accès autorisé")
         orders = load_orders()
-        st.subheader("Commandes enregistrÃ©es")
+        st.subheader("Commandes enregistrées")
         for k, v in orders.items():
             st.markdown(f"- **{k}** : {v} ventes")
-        if st.button("RÃ©initialiser les ventes"):
+        if st.button("Réinitialiser les ventes"):
             save_orders({k: 0 for k in orders})
-            st.success("Ventes rÃ©initialisÃ©es")
+            st.success("Ventes réinitialisées")
     else:
-        st.warning("Mot de passe requis pour l'accÃ¨s admin.")
+        st.warning("Mot de passe requis pour l'accès admin.")
