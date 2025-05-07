@@ -35,6 +35,7 @@ def save_orders(data):
         json.dump(data, f)
 
 # --- SIDEBAR ---
+st.sidebar.markdown("<h1 style='color:#ff073a; text-shadow:0 0 10px #ff073a;'>Trhacknon</h1>", unsafe_allow_html=True)
 st.sidebar.image("images/redbull.jpeg", width=120)
 st.sidebar.markdown("## Menu")
 page = st.sidebar.radio("Navigation", ["Présentation", "Produits", "Commander", "Admin"])
