@@ -18,7 +18,14 @@
         "desc": "Abricot énergique pour l'élite des Anonymous.",
         "price": "2.00",
         "flavor": "ABRICOT/FRAISE",
-        "image": "images/redbull_purple.jpeg"
+        "image": "images/redbull_apricot.jpeg"
+    },
+        {
+        "name": "Red Bull WINTER EDITION",
+        "desc": "Winter énergique pour l'élite des Anonymous.",
+        "price": "2.00",
+        "flavor": "VANILLE/BAIES",
+        "image": "images/redbull_winter.jpeg"
     },
     {
         "name": "FreePalestine Energy - Pêche Blanche",
