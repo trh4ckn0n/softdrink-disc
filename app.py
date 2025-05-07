@@ -49,7 +49,10 @@ if page == "Présentation":
         Propulsé par un style hacker & l’esprit de résistance.
         </div>
     """, unsafe_allow_html=True)
-    st.image("images/palestine.jpeg", caption="Soutenez l'énergie libre")
+    st.image("images/redbull_winter.jpeg", caption="Soutenez l'énergie libre")
+    st.image("images/redbull_summer.jpeg", caption="Soutenez l'énergie libre")
+    st.image("images/redbull_purple.jpeg", caption="Soutenez l'énergie libre")
+    st.image("images/redbull_sea_blue.jpeg", caption="Soutenez l'énergie libre")
 
 elif page == "Produits":
     st.header("Nos Boissons")
