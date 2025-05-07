@@ -15,6 +15,11 @@ h1, h2, h3, .css-10trblm {
     text-shadow: 0 0 10px #ff073a, 0 0 20px #ff073a;
 }
 
+h2, h3 {
+    color: #191970 !important;
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff073a;
+}
+
 .sidebar-hacker {
     background-color: #111;
     padding: 10px;
@@ -22,8 +27,8 @@ h1, h2, h3, .css-10trblm {
 }
 
 .sidebar-hacker h2 {
-    color: #f00;
-    text-shadow: 0 0 5px #f00;
+    color: #191970;
+    text-shadow: 0 0 5px #fff000;
 }
 
 .sidebar-hacker ul {
