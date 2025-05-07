@@ -8,8 +8,9 @@ body {
     font-family: 'Courier New', monospace;
     margin: 0;
     padding: 0;
-    position: relative;
+    overflow-x: hidden;
 }
+
 
 /* Arrière-plan animé type "scan" discret */
 
