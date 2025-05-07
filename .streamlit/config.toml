@@ -1,7 +1,7 @@
 [theme]
 base = "dark"
-backgroundColor = "#040000"      # Fond très sombre, presque noir
-secondaryBackgroundColor = "#0a0a0a"  # Légère variation pour encadrés ou cartes
-primaryColor = "#39ff14"         # Vert fluo
-textColor = "#00ffff"            # Cyan fluo
-font = "monospace"               # Police type terminal
+primaryColor = "#ff073a"         # Rouge néon
+backgroundColor = "#000000"      # Noir profond
+secondaryBackgroundColor = "#0a0a0a"
+textColor = "#39ff14"            # Vert fluo
+font = "monospace"
