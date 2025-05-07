@@ -9,16 +9,10 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  background: url("https://media4.giphy.com/media/3oKIPeS0xvkjaIL6BG/giphy.gif") expand;
-  opacity: 0.94;
+    position: relative;
 }
+
+/* Arrière-plan animé type "scan" discret */
 
 html, .css-18e3th9 {
     color: #39ff14 !important;
@@ -190,14 +184,31 @@ button:hover {
 /* ======================== */
 
 body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  background: url("https://media4.giphy.com/media/3oKIPeS0xvkjaIL6BG/giphy.gif") repeat;
-  opacity: 0.04;
-  pointer-events: none;
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 255, 0, 0.05),
+        rgba(0, 255, 0, 0.05) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    animation: scan 6s linear infinite;
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+/* Effet scan vertical lent */
+@keyframes scan {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 0 100%;
+    }
 }
