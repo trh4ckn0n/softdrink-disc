@@ -49,6 +49,7 @@ if page == "Présentation":
         Propulsé par un style hacker & l’esprit de résistance.
         </div>
     """, unsafe_allow_html=True)
+    st.image("images/redbull_apricot.jpeg", caption="Soutenez l'énergie libre")
     st.image("images/redbull_winter.jpeg", caption="Soutenez l'énergie libre")
     st.image("images/redbull_summer.jpeg", caption="Soutenez l'énergie libre")
     st.image("images/redbull_purple.jpeg", caption="Soutenez l'énergie libre")
