@@ -25,13 +25,13 @@
         "desc": "Une gorgée pour la cause, booste la paix avec style.",
         "price": "1.50",
         "flavor": "Pêche Blanche",
-        "image": "images/palestine_peche.jpg"
+        "image": "images/palestine_peche.jpeg"
     },
     {
         "name": "FreePalestine - Orange",
         "desc": "L'orange qui libère les esprits et rafraîchit les hacktivistes.",
         "price": "1.20",
         "flavor": "Orange",
-        "image": "images/palestine_orange.jpg"
+        "image": "images/palestine_orange.jpeg"
     }
 ]
