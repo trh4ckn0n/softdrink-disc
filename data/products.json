@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Red Bull Classic",
+        "desc": "L'original. Pour hacker toute la nuit.",
+        "price": "2.50",
+        "image": "redbull.png"
+    },
+    {
+        "name": "FreePalestine Energy",
+        "desc": "Boisson énergisante solidaire. 100% de résistance.",
+        "price": "3.00",
+        "image": "palestine_drink.png"
+    }
+]
