@@ -27,6 +27,13 @@
         "flavor": "VANILLE/BAIES",
         "image": "images/redbull_winter.jpeg"
     },
+            {
+        "name": "Red Bull PURPLE EDITION",
+        "desc": "Purple énergetique.",
+        "price": "2.00",
+        "flavor": "PURPLE/BAIES",
+        "image": "images/redbull_purple.jpeg"
+    },
     {
         "name": "FreePalestine Energy - Pêche Blanche",
         "desc": "Une gorgée pour la cause, booste la paix avec style.",
