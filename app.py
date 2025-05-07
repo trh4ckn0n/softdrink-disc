@@ -36,7 +36,7 @@ def save_orders(data):
 
 # --- SIDEBAR ---
 st.sidebar.markdown("<h1 style='color:#fff000; text-shadow:0 0 10px #0080ffa;'>Trhacknon</h1>", unsafe_allow_html=True)
-st.sidebar.image("images/3oKIPeS0xvkjaIL6BG.webp", width=100)
+st.sidebar.image("images/3oKIPeS0xvkjaIL6BG.gif", width=100)
 st.sidebar.markdown("## Menu")
 page = st.sidebar.radio("Navigation", ["Présentation", "Produits", "Commander", "Admin"])
 
