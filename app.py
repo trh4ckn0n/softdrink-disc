@@ -35,7 +35,7 @@ def save_orders(data):
         json.dump(data, f)
 
 # --- SIDEBAR ---
-st.sidebar.image("images/redbull.png", width=120)
+st.sidebar.image("images/redbull.jpeg", width=120)
 st.sidebar.markdown("## Menu")
 page = st.sidebar.radio("Navigation", ["Présentation", "Produits", "Commander", "Admin"])
 
@@ -48,7 +48,7 @@ if page == "Présentation":
         Propulsé par un style hacker & l’esprit de résistance.
         </div>
     """, unsafe_allow_html=True)
-    st.image("images/palestine_drink.png", caption="Soutenez l'énergie libre")
+    st.image("images/palestine.jpeg", caption="Soutenez l'énergie libre")
 
 elif page == "Produits":
     st.header("Nos Boissons")
