@@ -1,10 +1,29 @@
 import streamlit as st
 import json
+import os
 import requests
 
+# --- CONFIG ---
 st.set_page_config(page_title="Trhacknon Energy", layout="wide")
+bot_token = "TON_BOT_TOKEN"
+chat_id = "TON_CHAT_ID"
+
+# --- ASSETS ---
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+local_css("assets/style.css")
+
+# --- LOAD DATA ---
+def load_products():
+    with open("data/products.json", "r") as f:
+        return json.load(f)
 
 def load_orders():
+    if not os.path.exists("data/orders.json"):
+        with open("data/orders.json", "w") as f:
+            json.dump({}, f)
     with open("data/orders.json", "r") as f:
         return json.load(f)
 
@@ -12,71 +31,62 @@ def save_orders(data):
     with open("data/orders.json", "w") as f:
         json.dump(data, f)
 
-def update_order(product_name):
-    data = load_orders()
-    data[product_name] += 1
-    save_orders(data)
+# --- SIDEBAR ---
+st.sidebar.image("images/redbull.png", width=120)
+st.sidebar.markdown("## Menu")
+page = st.sidebar.radio("Navigation", ["PrÃ©sentation", "Produits", "Commander", "Admin"])
 
-def notify_order(name, flavor):
-    message = f"Nouvelle commande de {name} : {flavor}"
-    bot_token = "TON_BOT_TOKEN"
-    chat_id = "TON_CHAT_ID"
-    url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
-    requests.post(url, data={"chat_id": chat_id, "text": message})
+# --- PAGES ---
+if page == "PrÃ©sentation":
+    st.title("Bienvenue chez Trhacknon Energy")
+    st.markdown("""
+        <div class='intro'>
+        **Boissons Ã©nergÃ©tiques rebelles pour les esprits libres.**  
+        PropulsÃ© par un style hacker & lâ€™esprit de rÃ©sistance.
+        </div>
+    """, unsafe_allow_html=True)
+    st.image("images/palestine_drink.png", caption="Soutenez l'Ã©nergie libre")
 
-with open("assets/style.css") as f:
-    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+elif page == "Produits":
+    st.header("Nos Boissons")
+    products = load_products()
+    for p in products:
+        col1, col2 = st.columns([1, 3])
+        with col1:
+            st.image(p["image"], width=100)
+        with col2:
+            st.markdown(f"### {p['name']}")
+            st.markdown(f"GoÃ»t : **{p['flavor']}**")
+            st.markdown(f"**Prix : {p['price']}â‚¬**")
+            st.markdown("---")
 
-st.sidebar.markdown("""
-<div class="sidebar-hacker">
-    <h2>trhacknon.energy</h2>
-    <ul>
-        <li><a href="#presentation">Présentation</a></li>
-        <li><a href="#produits">Produits</a></li>
-        <li><a href="#achat">Acheter</a></li>
-    </ul>
-</div>
-""", unsafe_allow_html=True)
+elif page == "Commander":
+    st.header("Passe ta commande")
+    products = load_products()
+    choice = st.selectbox("Choisis ta boisson :", [p["name"] for p in products])
+    nom = st.text_input("Ton nom")
+    if st.button("Envoyer commande"):
+        if nom and choice:
+            orders = load_orders()
+            orders[choice] = orders.get(choice, 0) + 1
+            save_orders(orders)
+            st.success("Commande envoyÃ©e !")
+            msg = f"Nouvelle commande de {nom} pour une **{choice}**"
+            requests.get(f"https://api.telegram.org/bot{bot_token}/sendMessage?chat_id={chat_id}&text={msg}")
+        else:
+            st.warning("Remplis ton nom et choisis une boisson.")
 
-# Présentation
-st.markdown('<div id="presentation"></div>', unsafe_allow_html=True)
-st.title("Bienvenue sur Trhacknon Energy")
-st.write("Une marque rebelle, au cœur de la résistance, propulsée par l'énergie des taureaux et l'esprit de la liberté.")
-st.image("images/redbull.png", width=300)
-
-# Produits
-st.markdown('<div id="produits"></div>', unsafe_allow_html=True)
-st.header("Nos Produits")
-
-with open("data/products.json") as f:
-    products = json.load(f)
-
-cols = st.columns(len(products))
-for i, product in enumerate(products):
-    with cols[i]:
-        st.image(f"images/{product['image']}", width=150)
-        st.subheader(product["name"])
-        st.caption(product["desc"])
-        st.markdown(f"**Prix :** {product['price']}€")
-
-# Achat
-st.markdown('<div id="achat"></div>', unsafe_allow_html=True)
-st.header("Acheter maintenant")
-
-orders = load_orders()
-
-st.subheader("Statistiques")
-for p in products:
-    st.text(f"{p['name']} vendues : {orders[p['name']]}")
-
-st.subheader("Passer une commande")
-
-with st.form("order_form"):
-    name = st.text_input("Votre prénom")
-    flavor = st.selectbox("Boisson souhaitée", [p["name"] for p in products])
-    submit = st.form_submit_button("Commander")
-
-    if submit:
-        update_order(flavor)
-        notify_order(name, flavor)
-        st.success(f"Commande enregistrée : {name} veut {flavor}")
+elif page == "Admin":
+    st.header("Interface Admin")
+    password = st.text_input("Mot de passe admin", type="password")
+    if password == "trhackadmin":
+        st.success("AccÃ¨s autorisÃ©")
+        orders = load_orders()
+        st.subheader("Commandes enregistrÃ©es")
+        for k, v in orders.items():
+            st.markdown(f"- **{k}** : {v} ventes")
+        if st.button("RÃ©initialiser les ventes"):
+            save_orders({k: 0 for k in orders})
+            st.success("Ventes rÃ©initialisÃ©es")
+    else:
+        st.warning("Mot de passe requis pour l'accÃ¨s admin.")
