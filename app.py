@@ -35,7 +35,7 @@ def save_orders(data):
         json.dump(data, f)
 
 # --- SIDEBAR ---
-st.sidebar.markdown("<h1 style='color:#fff000; text-shadow:0 0 10px #ff073a;'>Trhacknon</h1>", unsafe_allow_html=True)
+st.sidebar.markdown("<h1 style='color:#fff000; text-shadow:0 0 10px #0080ffa;'>Trhacknon</h1>", unsafe_allow_html=True)
 st.sidebar.image("images/redbull_apricot.jpeg", width=100)
 st.sidebar.markdown("## Menu")
 page = st.sidebar.radio("Navigation", ["Présentation", "Produits", "Commander", "Admin"])
@@ -43,7 +43,7 @@ page = st.sidebar.radio("Navigation", ["Présentation", "Produits", "Commander",
 # --- PAGES ---
 if page == "Présentation":
     st.title("Découvrez les bonnes affaires sur des boissons Energetiques")
-    st.markdown("<h1 style='color:#fff000; text-shadow:0 0 10px #ff073a;'>by Trhacknon</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='color:#0080ff; text-shadow:0 0 10px #ff073a;'>by Trhacknon</h1>", unsafe_allow_html=True)
     st.markdown("""
         <div class='intro'>
         **Boissons énergétiques rebelles pour les esprits libres.**  
