@@ -199,7 +199,7 @@ body::before {
         transparent 3px
     );
     animation: scan 6s linear infinite;
-    opacity: 0.05;
+    opacity: 0.95;
     pointer-events: none;
 }
 
