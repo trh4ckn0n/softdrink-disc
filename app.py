@@ -1,12 +1,15 @@
 import streamlit as st
 import json
 import os
-import requests
+from dotenv import load_dotenv
+
+# Charger les variables d'environnement depuis le fichier .env
+load_dotenv()
 
 # --- CONFIG ---
 st.set_page_config(page_title="Trhacknon Energy", layout="wide")
-bot_token = "TON_BOT_TOKEN"
-chat_id = "TON_CHAT_ID"
+bot_token = os.getenv("BOT_TOKEN")
+chat_id = os.getenv("CHAT_ID")
 
 # --- ASSETS ---
 def local_css(file_name):
