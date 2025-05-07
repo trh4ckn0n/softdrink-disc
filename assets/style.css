@@ -1,24 +1,71 @@
+/* ======================== */
+/*        GLOBAL BASE       */
+/* ======================== */
+
 body {
     background-color: #000000 !important;
     color: #39ff14 !important;
     font-family: 'Courier New', monospace;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
-/* Texte général */
 html, .css-18e3th9 {
     color: #39ff14 !important;
 }
 
-/* Titres en néon rouge */
+p, .stMarkdown, .css-1cpxqw2 {
+    color: #00ffcc !important;
+    text-shadow: 0 0 5px #00ffcc;
+}
+
+/* ======================== */
+/*        TITRES / TEXT     */
+/* ======================== */
+
 h1, .css-10trblm {
     color: #ff073a !important;
-    text-shadow: 0 0 10px #ff073a, 0 0 20px #ff073a;
+    animation: glitch 2s infinite;
 }
 
 h2, h3 {
     color: #191970 !important;
     text-shadow: 0 0 10px #ff0000, 0 0 20px #ff073a;
+    animation: glitch 3s infinite;
 }
+
+@keyframes glitch {
+  0% { text-shadow: 2px 2px #ff00c1, -2px -2px #00fff9; }
+  20% { text-shadow: -2px -2px #ff00c1, 2px 2px #00fff9; }
+  40% { text-shadow: 2px -2px #ff00c1, -2px 2px #00fff9; }
+  60% { text-shadow: -2px 2px #ff00c1, 2px -2px #00fff9; }
+  80% { text-shadow: 2px 2px #ff00c1, -2px -2px #00fff9; }
+  100% { text-shadow: 0 0 10px #ff00c1, 0 0 20px #00fff9; }
+}
+
+.intro {
+    color: #00ffcc;
+    text-shadow: 0 0 10px #00ffcc;
+    animation: typing 4s steps(30, end), blink-caret 0.75s step-end infinite;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #00ffcc;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #00ffcc }
+}
+
+/* ======================== */
+/*         SIDEBAR          */
+/* ======================== */
 
 .sidebar-hacker {
     background-color: #111;
@@ -49,38 +96,76 @@ h2, h3 {
     color: #0f0;
     text-decoration: none;
     font-weight: bold;
+    transition: text-shadow 0.3s ease-in-out;
 }
 
 .sidebar-hacker a:hover {
     text-shadow: 0 0 5px #0080ff;
 }
 
-/* Fond général */
+/* ======================== */
+/*         BUTTONS          */
+/* ======================== */
 
-
-/* Paragraphes néon vert */
-p, .stMarkdown, .css-1cpxqw2 {
-    color: #00ffcc !important;
-    text-shadow: 0 0 5px #00ffcc;
-}
-
-/* Boutons en mode cyber */
 button {
     background-color: #ff073a !important;
     color: #000 !important;
     border-radius: 0px !important;
     border: 2px solid #39ff14 !important;
-    text-shadow: none !important;
     font-weight: bold;
+    animation: pulse 2s infinite;
+    transition: all 0.3s ease-in-out;
 }
 
 button:hover {
     background-color: #39ff14 !important;
     color: #000 !important;
     border: 2px solid #ff073a !important;
+    transform: scale(1.05);
 }
 
-/* Sidebar effet terminal */
+@keyframes pulse {
+  0% { box-shadow: 0 0 5px #ff073a; }
+  50% { box-shadow: 0 0 20px #ff073a; }
+  100% { box-shadow: 0 0 5px #ff073a; }
+}
+
+/* ======================== */
+/*        CONTAINERS        */
+/* ======================== */
+
+.css-1v3fvcr, .css-1avcm0n {
+    background-color: #111111 !important;
+    border: 1px solid #ff073a !important;
+    box-shadow: 0 0 10px #ff073a;
+    transition: 0.3s ease;
+}
+
+.css-1v3fvcr:hover, .css-1avcm0n:hover {
+    box-shadow: 0 0 25px #ff073a, 0 0 40px #ff073a;
+    transform: scale(1.01);
+}
+
+/* ======================== */
+/*        IMAGES            */
+/* ======================== */
+
+.stImage:hover {
+    filter: brightness(1.2);
+    transform: scale(1.02);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 20px #39ff14, 0 0 40px #ff073a;
+}
+
+.css-1kyxreq {
+    color: #f0f0f0;
+    font-style: italic;
+}
+
+/* ======================== */
+/*     TERMINAL SIDEBAR     */
+/* ======================== */
+
 .css-1d391kg {
     background-color: #0a0a0a !important;
     border-left: 5px solid #ff073a;
@@ -91,31 +176,19 @@ button:hover {
     text-shadow: 0 0 6px #ff073a;
 }
 
-/* Encadrés / containers */
-.css-1v3fvcr, .css-1avcm0n {
-    background-color: #111111 !important;
-    border: 1px solid #ff073a !important;
-    box-shadow: 0 0 10px #ff073a;
-}
+/* ======================== */
+/*     BACKGROUND EFFECT    */
+/* ======================== */
 
-/* Image captions */
-.css-1kyxreq {
-    color: #f0f0f0;
-    font-style: italic;
-}
-
-/* Animation néon sur la zone d'intro */
-.intro {
-    color: #00ffcc;
-    text-shadow: 0 0 10px #00ffcc;
-    animation: blink 1.2s infinite alternate;
-}
-
-@keyframes blink {
-    from {
-        text-shadow: 0 0 5px #00ffcc;
-    }
-    to {
-        text-shadow: 0 0 15px #00ffcc, 0 0 25px #00ffcc;
-    }
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: url("https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif") repeat;
+  opacity: 0.04;
+  pointer-events: none;
 }
