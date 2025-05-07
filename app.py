@@ -43,7 +43,7 @@ page = st.sidebar.radio("Navigation", ["Présentation", "Produits", "Commander",
 # --- PAGES ---
 if page == "Présentation":
     st.title("Découvrez les bonnes affaires sur des boissons Energetiques")
-    st.markdown("<h1 style='color:#0080ff; text-shadow:0 0 10px #ff073a;'>by Trhacknon</h1>", unsafe_allow_html=True)
+    st.markdown("<h2 style='color:#0080ff; text-shadow:0 0 10px #ff073a;'>by Trhacknon</h2>", unsafe_allow_html=True)
     st.markdown("""
         <div class='intro'>
         **Boissons énergétiques rebelles pour les esprits libres.**  
