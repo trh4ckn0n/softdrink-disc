@@ -11,7 +11,25 @@ body {
     overflow-x: hidden;
 }
 
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(10, 10, 10, 0.8);
+    text-align: center;
+    padding: 5px 0;
+    font-size: 12px;
+    font-family: 'Courier New', monospace;
+    color: #00ff88;
+    text-shadow: 0 0 5px #00ff88;
+    z-index: 999;
+    transition: opacity 0.3s;
+    opacity: 0.2;
+}
 
+footer:hover {
+    opacity: 0.9;
+}
 /* Arrière-plan animé type "scan" discret */
 
 html, .css-18e3th9 {
