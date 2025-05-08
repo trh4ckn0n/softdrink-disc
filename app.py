@@ -107,3 +107,12 @@ elif page == "Admin":
             st.success("Ventes réinitialisées")
     else:
         st.warning("Mot de passe requis pour l'accès admin.")
+
+st.markdown(
+    """
+    <footer>
+    by <strong>trhacknon</strong> | Digital Liberté &bull; Hacker Style &bull; Allobull Energy
+    </footer>
+    """,
+    unsafe_allow_html=True
+)
