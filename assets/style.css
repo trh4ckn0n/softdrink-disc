@@ -96,11 +96,16 @@ h2 {
 
 }
 
-h1:hover, h2:hover {
+h1:hover {
     text-shadow: 0 0 10px #9b00ff, 0 0 20px #ff6600;
-    animation: glitch-footer 0.1s infinite;
-
+    animation: glitch-footer 4s infinite;
 }
+
+h2:hover {
+    text-shadow: 0 0 10px #ff073a, 0 0 20px #ff6600;
+    animation: glitch-footer 0.1s infinite;
+}
+
 h3 {
     color: #191970 !important;
     text-shadow: 0 0 10px #ff0000, 0 0 20px #ff073a;
