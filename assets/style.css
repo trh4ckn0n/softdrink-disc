@@ -236,7 +236,7 @@ button:hover {
 
 .stImage:hover {
     filter: brightness(1.2);
-    transform: scale(1.02);
+    transform: scale(0.95);
     transition: all 0.3s ease-in-out;
     box-shadow: 0 0 20px #39ff14, 0 0 40px #ff073a;
 }
