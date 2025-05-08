@@ -2,6 +2,7 @@ import streamlit as st
 import json
 import os
 from dotenv import load_dotenv
+import streamlit.components.v1 as components
 
 # Charger les variables d'environnement depuis le fichier .env
 load_dotenv()
@@ -110,18 +111,21 @@ elif page == "Admin":
 
 # Inject JS pour rendre le footer visible quand on atteint le bas
 # Inject footer HTML
+
+
+# Inject footer HTML avec un ID bien identifiable
 st.markdown("""
 <div id="custom-footer">
     by <strong>trhacknon</strong> | énergie libre &bull; style hacker
 </div>
 """, unsafe_allow_html=True)
 
-# JavaScript to show/hide footer on scroll
-st.markdown("""
+# Inject JavaScript via Streamlit components (fonctionne mieux que markdown pour scripts)
+components.html("""
 <script>
 const footer = document.getElementById("custom-footer");
 
-window.addEventListener("scroll", function() {
+document.addEventListener("scroll", () => {
     const scrollTop = window.scrollY;
     const windowHeight = window.innerHeight;
     const bodyHeight = document.body.scrollHeight;
@@ -132,4 +136,4 @@ window.addEventListener("scroll", function() {
     }
 });
 </script>
-""", unsafe_allow_html=True)
+""", height=0)
