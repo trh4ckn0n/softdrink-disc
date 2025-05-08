@@ -125,11 +125,8 @@ document.addEventListener("scroll", function() {
 </script>
 """, unsafe_allow_html=True)
 
-st.markdown(
-    """
-    <footer>
-    by <strong>trhacknon</strong> | Digital Liberté &bull; Hacker Style &bull; Allobull Energy
-    </footer>
-    """,
-    unsafe_allow_html=True
-)
+st.markdown("""
+<footer>
+by <strong>trhacknon</strong> | Digital Liberté &bull; Hacker Style &bull; Allobull Energy
+</footer>
+""", unsafe_allow_html=True)
