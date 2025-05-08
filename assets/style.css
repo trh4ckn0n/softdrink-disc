@@ -50,7 +50,7 @@ body {
     background-color: rgba(0, 0, 0, 0.15);
     z-index: 999;
     opacity: 0.5;
-    animation: shake 1s infinite;
+    animation: shake 3s infinite;
     transition: all 0.3s ease-in-out;
 }
 
