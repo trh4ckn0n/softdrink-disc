@@ -28,7 +28,7 @@ body {
     box-shadow: 0 0 5px #00ffcc22;
 }
 
-#custom-footer:hover {
+#custom-footer.visible {
     opacity: 0.9;
 }
 /* Arrière-plan animé type "scan" discret */
