@@ -89,7 +89,13 @@ h1, .css-10trblm {
     animation: glitch 2s infinite;
 }
 
-h2, h3 {
+h2 {
+    color: #191970 !important;
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff073a;
+    animation: shake 0.5s infinite, glitch-footer 3s infinite;
+
+}
+h3 {
     color: #191970 !important;
     text-shadow: 0 0 10px #ff0000, 0 0 20px #ff073a;
     animation: glitch 3s infinite;
