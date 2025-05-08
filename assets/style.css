@@ -54,8 +54,8 @@ body {
   20% { text-shadow: -1px -1px #ff6600, 1px 1px #9b00ff; }
   40% { text-shadow: 1px -1px #ff6600, -1px 1px #9b00ff; }
   60% { text-shadow: -1px 1px #00ff00, 1px -1px #00ffff; }
-  80% { text-shadow: 1px 1px #00ff00, -1px -2px #00ffff; }
-  100% { text-shadow: 0 0 10px #9b00ff, 0 0 20px #ff6600; }
+  80% { text-shadow: 1px 1px #00ff00, -1px -1px #00ffff; }
+  100% { text-shadow: 0 0 5px #9b00ff, 0 0 10px #0080ff; }
 }
 
 html, .css-18e3th9 {
