@@ -71,6 +71,13 @@ body {
   100% { text-shadow: 0 0 5px #9b00ff, 0 0 10px #0080ff; }
 }
 
+.stImage {
+    filter: brightness(1);
+    transform: scale(1.00);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 20px #9b00ff, 0 0 40px #0080ff;
+}
+
 html, .css-18e3th9 {
     color: #39ff14 !important;
 }
