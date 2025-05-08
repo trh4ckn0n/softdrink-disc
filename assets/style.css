@@ -18,13 +18,13 @@ footer {
     background: rgba(10, 10, 10, 0.8);
     text-align: center;
     padding: 5px 0;
-    font-size: 12px;
+    font-size: 16px;
     font-family: 'Courier New', monospace;
     color: #00ff88;
     text-shadow: 0 0 5px #00ff88;
     z-index: 999;
     transition: opacity 0.3s;
-    opacity: 0.2;
+    opacity: 0.4;
 }
 
 footer:hover {
