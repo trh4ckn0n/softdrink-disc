@@ -11,22 +11,24 @@ body {
     overflow-x: hidden;
 }
 
-footer {
+#custom-footer {
     position: fixed;
     bottom: 0;
+    left: 0;
     width: 100%;
-    background: rgba(10, 10, 10, 0.6);
+    background: rgba(0, 0, 0, 0.3);
     text-align: center;
-    padding: 5px 0;
-    font-size: 12px;
-    font-family: 'Courier New', monospace;
-    color: #00ff88;
-    text-shadow: 0 0 5px #00ff88;
+    color: #00ffcc;
+    font-family: monospace;
+    font-size: 13px;
+    padding: 6px 0;
+    opacity: 0.1;
+    transition: opacity 0.4s ease;
     z-index: 999;
-    opacity: 0.25;
-    transition: opacity 0.6s ease-in-out;
+    box-shadow: 0 0 5px #00ffcc22;
 }
-footer.visible {
+
+#custom-footer.visible {
     opacity: 0.9;
 }
 /* Arrière-plan animé type "scan" discret */
