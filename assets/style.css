@@ -103,7 +103,7 @@ h1:hover {
 
 h2:hover {
     text-shadow: 0 0 10px #ff073a, 0 0 20px #ff6600;
-    animation: glitch-footer 0.1s infinite;
+    animation: glitch-footer 3s infinite;
 }
 
 h3 {
