@@ -50,7 +50,7 @@ body {
     background-color: rgba(0, 0, 0, 0.15);
     z-index: 999;
     opacity: 0.5;
-    animation: shake-footer 2s infinite;
+    animation: shake 2s infinite;
     transition: all 0.3s ease-in-out;
 }
 
@@ -59,8 +59,7 @@ body {
     background-color: rgba(0, 0, 0, 0.85);
     text-shadow: 0 0 10px #00ffff, 0 0 20px #ff00ff;
     transform: scale(1.03);
-    animation: glitch-footer 2s infinite;
-
+    animation: shake-footer 2s infinite, glitch-footer 2s infinite;
 }
 
 @keyframes glitch-footer {
