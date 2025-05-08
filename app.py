@@ -108,6 +108,23 @@ elif page == "Admin":
     else:
         st.warning("Mot de passe requis pour l'accès admin.")
 
+# Inject JS pour rendre le footer visible quand on atteint le bas
+st.markdown("""
+<script>
+document.addEventListener("scroll", function() {
+    const footer = document.querySelector("footer");
+    const scrollTop = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const bodyHeight = document.body.scrollHeight;
+    if (scrollTop + windowHeight >= bodyHeight - 10) {
+        footer.classList.add("visible");
+    } else {
+        footer.classList.remove("visible");
+    }
+});
+</script>
+""", unsafe_allow_html=True)
+
 st.markdown(
     """
     <footer>
