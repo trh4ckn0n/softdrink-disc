@@ -45,7 +45,7 @@ body {
     background-color: rgba(0, 0, 0, 0.85);
     text-shadow: 0 0 10px #00ffff, 0 0 20px #ff00ff;
     transform: scale(1.03);
-    animation: typing 2s linear infinite
+    animation: scan 4s linear infinite;
 
 }
 
