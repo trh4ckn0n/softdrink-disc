@@ -83,7 +83,7 @@ elif page == "Commander":
     st.header("Passe ta commande")
     products = load_products()
     choice = st.selectbox("Choisis ta boisson :", [p["name"] for p in products])
-    nom = st.text_input("Ton nom")
+    nom = st.text_input("Ton nom et contact oú tu veux qu'on te joigne (telegram/snapchat/messenger/...).")
     if st.button("Envoyer commande"):
         if nom and choice:
             orders = load_orders()
