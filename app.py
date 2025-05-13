@@ -60,11 +60,12 @@ if page == "Présentation":
         Propulsé par un style hacker & l’esprit de résistance.
         </div>
     """, unsafe_allow_html=True)
-    st.image("images/redbull_apricot.jpeg", caption="Soutenez l'énergie libre")
-    st.image("images/redbull_winter.jpeg", caption="Soutenez l'énergie libre")
-    st.image("images/redbull_summer.jpeg", caption="Soutenez l'énergie libre")
-    st.image("images/redbull_purple.jpeg", caption="Soutenez l'énergie libre")
-    st.image("images/redbull_sea_blue.jpeg", caption="Soutenez l'énergie libre")
+    st.image("images/redbull_apricot.jpeg", caption="Faites le plein d'énergie libre")
+    st.image("images/redbull_winter.jpeg", caption="Faites le plein d'énergie libre")
+    st.image("images/redbull_summer.jpeg", caption="Faites le plein d'énergie libre")
+    st.image("images/redbull_purple.jpeg", caption="Faites le plein d'énergie libre")
+        st.image("images/redbull_spring.png", caption="Faites le plein d'énergie libre")
+    st.image("images/redbull_sea_blue.jpeg", caption="Faites le plein d'énergie libre")
 
 elif page == "Produits":
     st.header("Nos Boissons")
