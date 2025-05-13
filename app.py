@@ -1,6 +1,7 @@
 import streamlit as st
 import json
 import os
+import requests
 from dotenv import load_dotenv
 import streamlit.components.v1 as components
 
