@@ -9,7 +9,7 @@ import streamlit.components.v1 as components
 load_dotenv()
 
 # --- CONFIG ---
-st.set_page_config(page_title="Trhacknon Energy", layout="wide")
+st.set_page_config(page_title="Faites le plein d'énergie", layout="wide")
 bot_token = os.getenv("BOT_TOKEN")
 chat_id = os.getenv("CHAT_ID")
 
@@ -118,7 +118,7 @@ elif page == "Admin":
 # Inject footer HTML avec un ID bien identifiable
 st.markdown("""
 <div id="custom-footer">
-    by <strong>trhacknon</strong> | énergie libre &bull; style hacker
+    by <strong>trhacknon</strong> | Faites le plein d'énergie &bull; style hacker
 </div>
 """, unsafe_allow_html=True)
 
