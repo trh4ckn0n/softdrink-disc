@@ -84,14 +84,16 @@ elif page == "Commander":
     st.header("Passe ta commande")
     products = load_products()
     choice = st.selectbox("Choisis ta boisson :", [p["name"] for p in products])
-    nom = st.text_input("Ton nom et contact oú tu veux qu'on te joigne (telegram/snapchat/messenger/...).")
+    nom = st.text_input("Ton nom.")
+    contact = st.text_input("contact oú tu veux qu'on te joigne (telegram/snapchat/messenger/...).")
+
     if st.button("Envoyer commande"):
         if nom and choice:
             orders = load_orders()
             orders[choice] = orders.get(choice, 0) + 1
             save_orders(orders)
             st.success("Commande envoyée !")
-            msg = f"Nouvelle commande de {nom} pour une **{choice}**"
+            msg = f"Nouvelle commande de {nom} pour une **{choice}**. contact: {contact}"
             requests.get(f"https://api.telegram.org/bot{bot_token}/sendMessage?chat_id={chat_id}&text={msg}")
         else:
             st.warning("Remplis ton nom et choisis une boisson.")
