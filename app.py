@@ -75,7 +75,12 @@ def handle_commande(update: Update, context: CallbackContext):
         print(f"Erreur dans handle_commande : {e}")
 
 # Fonction pour démarrer le bot Telegram
+def start(update: Update, context: CallbackContext):
+    update.message.reply_text("Bienvenue ! Utilise /commande <NomBoisson> <TonContact> pour passer une commande.")
 
+def handle_message(update: Update, context: CallbackContext):
+    update.message.reply_text("Commande non reconnue. Utilise /commande <NomBoisson> <TonContact>.")
+    
 def start_telegram_bot():
     try:
         updater = Updater(BOT_TOKEN, use_context=True)
