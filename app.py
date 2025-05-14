@@ -5,7 +5,7 @@ import requests
 import streamlit as st
 from dotenv import load_dotenv
 from telegram import Update
-from telegram.ext import Updater, CommandHandler, CallbackContext
+from telegram.ext import Updater, CommandHandler, CallbackContext, MessageHandler, Filters
 from telegram.error import Conflict
 
 # Chargement des variables d'environnement
