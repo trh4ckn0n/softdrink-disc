@@ -2,7 +2,6 @@ import os
 import json
 import threading
 import requests
-import telegram
 import streamlit as st
 from dotenv import load_dotenv
 from telegram import Update
