@@ -93,11 +93,11 @@ elif page == "Commander":
 
     # Affichage du total à payer
     if selected_product:
-    try:
-        total = float(selected_product["price"]) * quantite
-        st.info(f"Total à payer : **{total:.2f}€**")
-    except ValueError:
-        st.warning("Erreur : le prix du produit est invalide.")
+        try:
+            total = float(selected_product["price"]) * quantite
+            st.info(f"Total à payer : **{total:.2f}€**")
+        except ValueError:
+            st.warning("Erreur : le prix du produit est invalide.")
 
     if st.button("Envoyer commande"):
         if nom and choice and contact:
