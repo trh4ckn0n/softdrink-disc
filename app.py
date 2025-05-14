@@ -6,6 +6,7 @@ import streamlit as st
 from dotenv import load_dotenv
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, CallbackContext
+from telegram.error import Conflict
 
 # Chargement des variables d'environnement
 load_dotenv()
@@ -74,13 +75,21 @@ def handle_commande(update: Update, context: CallbackContext):
         print(f"Erreur dans handle_commande : {e}")
 
 # Fonction pour démarrer le bot Telegram
-def start_telegram_bot():
-    updater = Updater(BOT_TOKEN, use_context=True)
-    dp = updater.dispatcher
-    dp.add_handler(CommandHandler("commande", handle_commande))
-    updater.start_polling()
-    updater.idle()
 
+def start_telegram_bot():
+    try:
+        updater = Updater(BOT_TOKEN, use_context=True)
+        dispatcher = updater.dispatcher
+
+        dispatcher.add_handler(CommandHandler("start", start))
+        dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, handle_message))
+
+        print("[+] Bot Telegram lancé.")
+        updater.start_polling()
+        updater.idle()
+
+    except Conflict:
+        print("[!] Une autre instance du bot tourne déjà.")
 # Démarrage du bot Telegram dans un thread séparé
 bot_thread = threading.Thread(target=start_telegram_bot, daemon=True)
 bot_thread.start()
