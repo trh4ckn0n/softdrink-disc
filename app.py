@@ -86,16 +86,16 @@ elif page == "Commander":
     product_names = [p["name"] for p in products]
     choice = st.selectbox("Choisis ta boisson :", product_names)
     selected_product = next((p for p in products if p["name"] == choice), None)
-
     nom = st.text_input("Ton nom.")
     contact = st.text_input("Contact où tu veux qu'on te joigne (telegram/snapchat/messenger/...).")
-    quantite = st.selectbox("Nombre de boissons souhaitées :", list(range(1, 11)), index=0)
+    quantite = st.selectbox("Nombre de boissons souhaitées :", list(range(1, 12)), index=0)
 
     # Affichage du total à payer
     if selected_product:
         try:
             total = float(selected_product["price"]) * quantite
-            st.info(f"Total à payer : **{total:.2f}€**")
+            unit = float(selected_product["price"])
+            st.info(f"(prix unitaire : {unit:.2f}€ total : {total:.2f}€)")
         except ValueError:
             st.warning("Erreur : le prix du produit est invalide.")
 
@@ -107,7 +107,7 @@ elif page == "Commander":
             st.success("Commande envoyée !")
             msg = (
                 f"Nouvelle commande de {nom} pour **{quantite}x {choice}** "
-                f"(total : {total:.2f}€). Contact : {contact}"
+                f"(prix unitaire : {unit:.2f}€ total : {total:.2f}€). Contact : {contact}"
             )
             requests.get(f"https://api.telegram.org/bot{bot_token}/sendMessage?chat_id={chat_id}&text={msg}")
         else:
