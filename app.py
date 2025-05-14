@@ -83,21 +83,32 @@ elif page == "Produits":
 elif page == "Commander":
     st.header("Passe ta commande")
     products = load_products()
-    choice = st.selectbox("Choisis ta boisson :", [p["name"] for p in products])
+    product_names = [p["name"] for p in products]
+    choice = st.selectbox("Choisis ta boisson :", product_names)
+    selected_product = next((p for p in products if p["name"] == choice), None)
+
     nom = st.text_input("Ton nom.")
-    contact = st.text_input("contact oú tu veux qu'on te joigne (telegram/snapchat/messenger/...).")
+    contact = st.text_input("Contact où tu veux qu'on te joigne (telegram/snapchat/messenger/...).")
+    quantite = st.selectbox("Nombre de boissons souhaitées :", list(range(1, 11)), index=0)
+
+    # Affichage du total à payer
+    if selected_product:
+        total = selected_product["price"] * quantite
+        st.info(f"Total à payer : **{total:.2f}€**")
 
     if st.button("Envoyer commande"):
-        if nom and choice:
+        if nom and choice and contact:
             orders = load_orders()
-            orders[choice] = orders.get(choice, 0) + 1
+            orders[choice] = orders.get(choice, 0) + quantite
             save_orders(orders)
             st.success("Commande envoyée !")
-            msg = f"Nouvelle commande de {nom} pour une **{choice}**. contact: {contact}"
+            msg = (
+                f"Nouvelle commande de {nom} pour **{quantite}x {choice}** "
+                f"(total : {total:.2f}€). Contact : {contact}"
+            )
             requests.get(f"https://api.telegram.org/bot{bot_token}/sendMessage?chat_id={chat_id}&text={msg}")
         else:
-            st.warning("Remplis ton nom et choisis une boisson.")
-
+            st.warning("Remplis tous les champs avant d'envoyer ta commande.")
 elif page == "Admin":
     st.header("Interface Admin")
     password = st.text_input("Mot de passe admin", type="password")
