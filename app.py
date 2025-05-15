@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 import streamlit.components.v1 as components
 import random
 import string
+from datetime import datetime
 
 # Charger les variables d'environnement
 dotenv_path = ".env"
@@ -25,7 +26,7 @@ def local_css(file_name):
 
 local_css("assets/style.css")
 
-# --- LOAD DATA ---
+# --- LOAD / SAVE FUNCTIONS ---
 def load_products():
     with open("data/products.json", "r") as f:
         return json.load(f)
@@ -33,13 +34,13 @@ def load_products():
 def load_orders():
     if not os.path.exists("data/orders.json"):
         with open("data/orders.json", "w") as f:
-            json.dump({}, f)
+            json.dump([], f)
     with open("data/orders.json", "r") as f:
         return json.load(f)
 
 def save_orders(data):
     with open("data/orders.json", "w") as f:
-        json.dump(data, f)
+        json.dump(data, f, indent=4)
 
 def load_promos():
     if not os.path.exists("data/promos.json"):
@@ -50,9 +51,9 @@ def load_promos():
 
 def save_promos(data):
     with open("data/promos.json", "w") as f:
-        json.dump(data, f)
+        json.dump(data, f, indent=4)
 
-# --- FONCTION PROMO ---
+# --- PROMO ---
 def generate_code(length=8):
     return ''.join(random.choices(string.ascii_uppercase + string.digits, k=length))
 
@@ -103,8 +104,8 @@ elif page == "Commander":
     choice = st.selectbox("Choisis ta boisson :", product_names)
     selected_product = next((p for p in products if p["name"] == choice), None)
     nom = st.text_input("Ton nom.")
-    contact = st.text_input("Contact où tu veux qu'on te joigne (telegram/snapchat/messenger/...).")
-    quantite = st.selectbox("Nombre de boissons souhaitées :", list(range(1, 12)), index=0)
+    contact = st.text_input("Contact (telegram/snapchat/messenger/...)")
+    quantite = st.selectbox("Quantité :", list(range(1, 12)), index=0)
     promo_code = st.text_input("Code promo (facultatif)")
 
     if selected_product:
@@ -118,7 +119,15 @@ elif page == "Commander":
     if st.button("Envoyer commande"):
         if nom and choice and contact:
             orders = load_orders()
-            orders[choice] = orders.get(choice, 0) + quantite
+            order_data = {
+                "nom": nom,
+                "produit": choice,
+                "quantite": quantite,
+                "contact": contact,
+                "total": round(total_applique, 2),
+                "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            }
+            orders.append(order_data)
             save_orders(orders)
             promos = load_promos()
             if promo_code in promos:
@@ -127,7 +136,7 @@ elif page == "Commander":
             st.success("Commande envoyée !")
             msg = (
                 f"Nouvelle commande de {nom} pour **{quantite}x {choice}** "
-                f"(prix total : {total_applique:.2f}€). Contact : {contact}"
+                f"(total : {total_applique:.2f}€). Contact : {contact}"
             )
             requests.get(f"https://api.telegram.org/bot{bot_token}/sendMessage?chat_id={chat_id}&text={msg}")
         else:
@@ -138,18 +147,23 @@ elif page == "Admin":
     password = st.text_input("Mot de passe admin", type="password")
     if password == "trhackadmin":
         st.success("Accès autorisé")
+
+        st.subheader("Historique des commandes")
         orders = load_orders()
-        st.subheader("Commandes enregistrées")
-        for k, v in orders.items():
-            st.markdown(f"- **{k}** : {v} ventes")
-        if st.button("Réinitialiser les ventes"):
-            save_orders({k: 0 for k in orders})
-            st.success("Ventes réinitialisées")
+        if orders:
+            st.table(orders)
+        else:
+            st.info("Aucune commande enregistrée.")
+
+        if st.button("Réinitialiser les commandes"):
+            save_orders([])
+            st.success("Commandes réinitialisées.")
 
         st.subheader("Codes promos")
         promos = load_promos()
         for code, infos in promos.items():
             st.markdown(f"- {code} | -{infos['discount']}€ | utilisé: {infos.get('used', False)}")
+
         if st.button("Générer un nouveau code promo"):
             code = generate_code()
             promos[code] = {"discount": 1, "used": False}
