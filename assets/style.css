@@ -98,7 +98,7 @@ body {
 #custom-footer:hover {
     opacity: 1;
     background-color: rgba(0, 0, 0, 0.85);
-    text-shadow: 0 0 10px #00ffff, 0 0 20px #ff00ff;
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #E73E01;
     transform: scale(1.03);
     animation: glitch-footer 0.5s infinite;
 }
@@ -107,8 +107,8 @@ body {
   0% { text-shadow: 1px 1px #ff6600, -1px -1px #9b00ff; }
   20% { text-shadow: -1px -1px #ff6600, 1px 1px #9b00ff; }
   40% { text-shadow: 1px -1px #ff6600, -1px 1px #9b00ff; }
-  60% { text-shadow: -1px 1px #00ff00, 1px -1px #00ffff; }
-  80% { text-shadow: 1px 1px #00ff00, -1px -1px #00ffff; }
+  60% { text-shadow: -1px 1px #E73E01, 1px -1px #00ffff; }
+  80% { text-shadow: 1px 1px #E73E01, -1px -1px #00ffff; }
   100% { text-shadow: 0 0 5px #9b00ff, 0 0 10px #0080ff; }
 }
 
@@ -172,8 +172,8 @@ h3 {
   0% { text-shadow: 2px 2px #0000FF, -2px -2px #DFFF00; }
   20% { text-shadow: -2px -2px 	#0000FF, 2px 2px #DFFF00; }
   40% { text-shadow: 2px -2px 	#0000FF, -2px 2px #DFFF00; }
-  60% { text-shadow: -2px 2px 	#0000FF, 2px -2px #DFFF00; }
-  80% { text-shadow: 2px 2px 	#0000FF, -2px -2px #DFFF00; }
+  60% { text-shadow: -2px 2px 	#E73E01, 2px -2px #0000FF; }
+  80% { text-shadow: 2px 2px 	#E73E01, -2px -2px #0000FF; }
   100% { text-shadow: 0 0 10px 	#0000FF, 0 0 20px #DFFF00; }
 }
 
