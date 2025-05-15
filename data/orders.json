@@ -1,8 +1,5 @@
 {
-  "Red Bull SEA BLUE EDITION": [
-    {"nom": "Alice", "contact": "telegram: @alice", "quantite": 2, "total": 3.00},
-    {"nom": "Bob", "contact": "snap: bob32", "quantite": 1, "total": 1.50}
-  ],
+  "Red Bull SEA BLUE EDITION": [],
   "Red Bull SUMMER EDITION": [],
   "Red Bull APRICOT EDITION": [],
   "Red Bull WINTER EDITION": [],
