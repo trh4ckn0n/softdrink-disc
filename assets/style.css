@@ -169,12 +169,12 @@ h3 {
 
 
 @keyframes glitch {
-  0% { text-shadow: 2px 2px #0000FF, -2px -2px #DFFF00; }
-  20% { text-shadow: -2px -2px 	#0000FF, 2px 2px #DFFF00; }
-  40% { text-shadow: 2px -2px 	#0000FF, -2px 2px #DFFF00; }
+  0% { text-shadow: 2px 2px #FF007F, -2px -2px #DFFF00; }
+  20% { text-shadow: -2px -2px 	#FF007F, 2px 2px #DFFF00; }
+  40% { text-shadow: 2px -2px 	#FF007F, -2px 2px #DFFF00; }
   60% { text-shadow: -2px 2px 	#E73E01, 2px -2px #0000FF; }
   80% { text-shadow: 2px 2px 	#E73E01, -2px -2px #0000FF; }
-  100% { text-shadow: 0 0 10px 	#0000FF, 0 0 20px #DFFF00; }
+  100% { text-shadow: 0 0 10px 	#FF007F, 0 0 20px #DFFF00; }
 }
 
 .intro {
