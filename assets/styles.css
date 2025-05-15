@@ -1,223 +1,205 @@
-/* ======================= */
-/*        BASE GLOBAL      */
-/* ======================= */
+/* ======================== */
+/*        GLOBAL BASE       */
+/* ======================== */
 
 body {
-  background: linear-gradient(135deg, #000000, #0a0a0a);
-  color: #39ff14;
-  font-family: 'Courier New', monospace;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
+    background-color: #000000 !important;
+    color: #39ff14 !important;
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
-/* ======================= */
-/*       ANIMATIONS        */
-/* ======================= */
+html, .css-18e3th9 {
+    color: #39ff14 !important;
+}
+
+p, .stMarkdown, .css-1cpxqw2 {
+    color: #00ffcc !important;
+    text-shadow: 0 0 5px #00ffcc;
+}
+
+/* ======================== */
+/*         ANIMATIONS       */
+/* ======================== */
+
+@keyframes glitch {
+  0% { text-shadow: 2px 2px #ff00c1, -2px -2px #00fff9; }
+  20% { text-shadow: -2px -2px #ff00c1, 2px 2px #00fff9; }
+  40% { text-shadow: 2px -2px #ff00c1, -2px 2px #00fff9; }
+  60% { text-shadow: -2px 2px #ff00c1, 2px -2px #00fff9; }
+  80% { text-shadow: 2px 2px #ff00c1, -2px -2px #00fff9; }
+  100% { text-shadow: 0 0 10px #ff00c1, 0 0 20px #00fff9; }
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 5px #ff073a; }
+  50% { box-shadow: 0 0 20px #ff073a, 0 0 30px #00ffcc; }
+  100% { box-shadow: 0 0 5px #ff073a; }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #00ffcc }
+}
 
 @keyframes shake {
-  0%, 100% { transform: translate(0, 0) rotate(0); }
-  20% { transform: translate(-1px, 2px); }
-  40% { transform: translate(2px, -1px); }
-  60% { transform: translate(-1px, -1px); }
-  80% { transform: translate(1px, 2px); }
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  10% { transform: translate(-1px, 1px) rotate(-1deg); }
+  20% { transform: translate(-2px, 0px) rotate(1deg); }
+  30% { transform: translate(1px, -1px) rotate(0deg); }
+  40% { transform: translate(1px, 2px) rotate(1deg); }
+  50% { transform: translate(-1px, 1px) rotate(-1deg); }
+  60% { transform: translate(-2px, -1px) rotate(0deg); }
+  70% { transform: translate(2px, 1px) rotate(-1deg); }
+  80% { transform: translate(1px, -2px) rotate(1deg); }
+  90% { transform: translate(-1px, 2px) rotate(0deg); }
 }
 
-@keyframes glow {
-  0% { box-shadow: 0 0 5px #39ff14; }
-  50% { box-shadow: 0 0 20px #ff00ff, 0 0 30px #39ff14; }
-  100% { box-shadow: 0 0 5px #39ff14; }
+/* ======================== */
+/*        HEADERS           */
+/* ======================== */
+
+h1, .css-10trblm {
+    color: #ff073a !important;
+    animation: glitch 2s infinite;
 }
 
-@keyframes rainbow-glow {
-  0% { text-shadow: 0 0 5px red; }
-  25% { text-shadow: 0 0 10px orange; }
-  50% { text-shadow: 0 0 10px lime; }
-  75% { text-shadow: 0 0 10px cyan; }
-  100% { text-shadow: 0 0 5px violet; }
+h2, h3 {
+    color: #191970 !important;
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff073a;
+    animation: glitch 3s infinite;
 }
 
-/* ======================= */
-/*       HEADINGS / TEXT   */
-/* ======================= */
-
-h1, h2, h3 {
-  animation: rainbow-glow 3s infinite;
-  text-align: center;
-  margin: 20px auto;
+h1:hover, h2:hover {
+    text-shadow: 0 0 10px #9b00ff, 0 0 20px #ff6600;
 }
 
-p, span, li {
-  color: #00ffcc;
-  text-shadow: 0 0 3px #00ffcc;
+/* ======================== */
+/*        TEXT SPECIAL      */
+/* ======================== */
+
+.intro {
+    color: #00ffcc;
+    text-shadow: 0 0 10px #00ffcc;
+    animation: typing 4s steps(30, end), blink-caret 0.75s step-end infinite;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #00ffcc;
 }
 
-/* ======================= */
-/*         LINKS           */
-/* ======================= */
+/* ======================== */
+/*         FOOTER           */
+/* ======================== */
 
-a {
-  color: #ff00ff;
-  text-decoration: none;
-  transition: all 0.3s;
+#custom-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    color: #00ffcc;
+    background-color: rgba(0, 0, 0, 0.15);
+    z-index: 999;
+    opacity: 0.5;
+    animation: shake 3s infinite;
+    transition: all 0.3s ease-in-out;
 }
 
-a:hover {
-  color: #39ff14;
-  text-shadow: 0 0 5px #39ff14;
+#custom-footer:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.85);
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #ff00ff;
+    transform: scale(1.03);
+    animation: glitch 0.5s infinite;
 }
 
-/* ======================= */
-/*         BUTTONS         */
-/* ======================= */
+/* ======================== */
+/*         IMAGES           */
+/* ======================== */
+
+.stImage {
+    filter: brightness(1);
+    transform: scale(0.90);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 20px #9b00ff, 0 0 40px #0080ff;
+}
+
+/* ======================== */
+/*         SIDEBAR          */
+/* ======================== */
+
+.sidebar-hacker {
+    background-color: #111;
+    padding: 10px;
+    border-left: 4px solid #f00;
+}
+
+.sidebar-hacker h1 {
+    color: #0080ff;
+    text-shadow: 0 0 5px #ff0000;
+}
+
+.sidebar-hacker h2 {
+    color: #191970;
+    text-shadow: 0 0 5px #fff000;
+}
+
+.sidebar-hacker ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.sidebar-hacker li {
+    margin: 10px 0;
+}
+
+.sidebar-hacker a {
+    color: #0f0;
+    text-decoration: none;
+    font-weight: bold;
+    transition: text-shadow 0.3s ease-in-out;
+}
+
+.sidebar-hacker a:hover {
+    text-shadow: 0 0 5px #0080ff;
+}
+
+/* ======================== */
+/*         BUTTONS          */
+/* ======================== */
 
 button {
-  background-color: #ff073a;
-  color: #000;
-  border: 2px solid #39ff14;
-  border-radius: 5px;
-  padding: 10px 15px;
-  cursor: pointer;
-  font-weight: bold;
-  animation: glow 2s infinite;
-  transition: all 0.3s;
+    background-color: #ff073a !important;
+    color: #000 !important;
+    border-radius: 0px !important;
+    border: 2px solid #39ff14 !important;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+    transition: all 0.3s ease-in-out;
 }
 
 button:hover {
-  background-color: #39ff14;
-  color: #000;
-  border-color: #ff073a;
+    background-color: #39ff14 !important;
+    color: #000 !important;
+    border: 2px solid #ff073a !important;
+    transform: scale(1.05);
 }
 
-/* ======================= */
-/*         INPUTS          */
-/* ======================= */
+/* ======================== */
+/*        DIVERS            */
+/* ======================== */
 
-input, textarea, select {
-  background-color: #111;
-  color: #00ffcc;
-  border: 2px solid #ff00ff;
-  border-radius: 4px;
-  padding: 8px;
-  width: 100%;
-  margin-bottom: 10px;
-  transition: all 0.3s;
-}
-
-input:focus, textarea:focus, select:focus {
-  outline: none;
-  border-color: #39ff14;
-  box-shadow: 0 0 10px #39ff14;
-}
-
-/* ======================= */
-/*         BOXES           */
-/* ======================= */
-
-.card, .box, .panel {
-  background-color: #1a1a1a;
-  border: 2px solid #00ffcc;
-  border-radius: 10px;
-  padding: 20px;
-  margin: 15px auto;
-  box-shadow: 0 0 20px #ff00ff55;
-  transition: all 0.3s ease;
-}
-
-.card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 30px #39ff14;
-}
-
-/* ======================= */
-/*         TABLES          */
-/* ======================= */
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: #111;
-  color: #39ff14;
-  box-shadow: 0 0 10px #00ffcc;
-}
-
-th, td {
-  padding: 10px;
-  border: 1px solid #00ffcc;
-  text-align: left;
-}
-
-th {
-  background-color: #222;
-  color: #ff00ff;
-}
-
-/* ======================= */
-/*      SCROLLBAR STYLE    */
-/* ======================= */
-
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #111;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #39ff14;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #ff00ff;
-}
-
-/* ======================= */
-/*        SELECTION        */
-/* ======================= */
-
-::selection {
-  background: #ff00ff;
-  color: #000;
-}
-
-/* ======================= */
-/*        FOOTER           */
-/* ======================= */
-
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.7);
-  color: #00ffcc;
-  text-align: center;
-  padding: 10px;
-  font-size: 14px;
-  animation: shake 4s infinite;
-}
-
-/* ======================= */
-/*     CUSTOM CLASSES      */
-/* ======================= */
-
-.terminal-title {
-  font-family: monospace;
-  color: #ff073a;
-  text-shadow: 0 0 5px #ff073a;
-  animation: shake 0.4s infinite;
-}
-
-.hacker-border {
-  border: 2px dashed #ff00ff;
-  padding: 10px;
-  animation: glow 1.5s infinite;
-}
-
-.fluo-title {
-  color: #00ffcc;
-  text-shadow: 0 0 20px #00ffcc;
-  font-size: 1.5em;
-  margin-bottom: 10px;
+_terminalButton_rix23_138 {
+    color: #191970 !important;
+    border: 2px solid #00ffcc;
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff073a;
+    animation: shake 0.1s infinite, glitch 0.1s infinite;
 }
