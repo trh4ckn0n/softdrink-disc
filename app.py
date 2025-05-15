@@ -23,7 +23,7 @@ def local_css(file_name):
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 local_css("assets/style.css")
-local_css("assets/styles.css")
+#local_css("assets/styles.css")
 
 # --- LOAD DATA ---
 def load_products():
