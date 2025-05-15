@@ -1,0 +1,219 @@
+/* ======================== */
+/*        GLOBAL BASE       */
+/* ======================== */
+
+body {
+    background: linear-gradient(135deg, #000000 0%, #0a0a0a 100%) !important;
+    color: #39ff14 !important;
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* ======================== */
+/*        ANIMATIONS        */
+/* ======================== */
+
+@keyframes shake {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  10% { transform: translate(-2px, 2px) rotate(-1deg); }
+  20% { transform: translate(-1px, -2px) rotate(1deg); }
+  30% { transform: translate(2px, 1px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 1px) rotate(-1deg); }
+  60% { transform: translate(-2px, -1px) rotate(0deg); }
+  70% { transform: translate(1px, 2px) rotate(-1deg); }
+  80% { transform: translate(2px, -2px) rotate(1deg); }
+  90% { transform: translate(-1px, 1px) rotate(0deg); }
+}
+
+@keyframes glitch {
+  0% { text-shadow: 2px 2px #ff00c1, -2px -2px #00fff9; }
+  20% { text-shadow: -2px -2px #ff00c1, 2px 2px #00fff9; }
+  40% { text-shadow: 2px -2px #ff00c1, -2px 2px #00fff9; }
+  60% { text-shadow: -2px 2px #ff00c1, 2px -2px #00fff9; }
+  80% { text-shadow: 2px 2px #ff00c1, -2px -2px #00fff9; }
+  100% { text-shadow: 0 0 10px #ff00c1, 0 0 20px #00fff9; }
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 5px #ff073a; }
+  50% { box-shadow: 0 0 20px #ff073a, 0 0 30px #ff00ff; }
+  100% { box-shadow: 0 0 5px #ff073a; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #00ffcc }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes rainbow-glow {
+  0% { text-shadow: 0 0 5px red; }
+  25% { text-shadow: 0 0 10px orange; }
+  50% { text-shadow: 0 0 10px yellow; }
+  75% { text-shadow: 0 0 10px lime; }
+  100% { text-shadow: 0 0 5px cyan; }
+}
+
+/* ======================== */
+/*         HEADERS          */
+/* ======================== */
+
+h1, .css-10trblm {
+    color: #ff073a !important;
+    animation: glitch 2s infinite;
+}
+
+h1:hover {
+    animation: rainbow-glow 3s infinite;
+    transform: scale(1.02);
+}
+
+h2, h3 {
+    color: #00ffff !important;
+    text-shadow: 0 0 8px #ff00ff;
+    animation: pulse 3s infinite;
+}
+
+h2:hover, h3:hover {
+    animation: glitch 2s infinite;
+    text-shadow: 0 0 15px #39ff14;
+}
+
+/* ======================== */
+/*        PARAGRAPHES       */
+/* ======================== */
+
+p, .stMarkdown, .css-1cpxqw2 {
+    color: #00ffcc !important;
+    text-shadow: 0 0 5px #00ffcc;
+    transition: all 0.3s ease-in-out;
+}
+
+p:hover {
+    color: #ff00ff !important;
+    text-shadow: 0 0 10px #ff00ff;
+}
+
+/* ======================== */
+/*        FOOTER            */
+/* ======================== */
+
+#custom-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    color: #00ffcc;
+    background-color: rgba(0, 0, 0, 0.15);
+    z-index: 999;
+    opacity: 0.5;
+    animation: shake 3s infinite;
+    transition: all 0.3s ease-in-out;
+}
+
+#custom-footer:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.85);
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #ff00ff;
+    transform: scale(1.03);
+}
+
+/* ======================== */
+/*        SIDEBAR           */
+/* ======================== */
+
+.sidebar-hacker {
+    background-color: #111;
+    padding: 10px;
+    border-left: 4px solid #ff00ff;
+}
+
+.sidebar-hacker h1, .sidebar-hacker h2 {
+    color: #00ffcc;
+    text-shadow: 0 0 10px #ff073a;
+}
+
+.sidebar-hacker a {
+    color: #00ffcc;
+    text-decoration: none;
+    font-weight: bold;
+    transition: text-shadow 0.3s ease-in-out, color 0.3s ease;
+}
+
+.sidebar-hacker a:hover {
+    color: #ff00ff;
+    text-shadow: 0 0 10px #39ff14;
+}
+
+/* ======================== */
+/*         BUTTONS          */
+/* ======================== */
+
+button {
+    background-color: #ff073a !important;
+    color: #000 !important;
+    border-radius: 5px !important;
+    border: 2px solid #39ff14 !important;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 5px #ff073a;
+}
+
+button:hover {
+    background-color: #39ff14 !important;
+    color: #000 !important;
+    border-color: #ff073a !important;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #39ff14, 0 0 30px #ff073a;
+}
+
+/* ======================== */
+/*        TERMINAL UI       */
+/* ======================== */
+
+_terminalButton_rix23_138 {
+    color: #191970 !important;
+    border: 2px solid #00ffcc;
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff073a;
+    animation: shake 0.2s infinite, glitch 0.5s infinite;
+}
+
+/* ======================== */
+/*        INTRO TEXT        */
+/* ======================== */
+
+.intro {
+    color: #00ffcc;
+    text-shadow: 0 0 10px #00ffcc;
+    animation: typing 4s steps(30, end), blink-caret 0.75s step-end infinite;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #00ffcc;
+}
+
+/* ======================== */
+/*       IMAGES / MEDIA     */
+/* ======================== */
+
+.stImage {
+    filter: brightness(1.2);
+    transform: scale(0.92);
+    transition: all 0.4s ease-in-out;
+    box-shadow: 0 0 20px #00ffff, 0 0 40px #ff00ff;
+}
+
+.stImage:hover {
+    transform: scale(1.05);
+    filter: brightness(1.4);
+    box-shadow: 0 0 30px #39ff14, 0 0 60px #ff073a;
+}
