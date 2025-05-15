@@ -251,8 +251,8 @@ input, textarea, select {
 }
 
 input:focus, textarea:focus, select:focus {
-    border-color: #ff073a;
-    box-shadow: 0 0 10px #ff073a;
+    border-color: #39ff14;
+    box-shadow: 0 0 10px #39ff14;
 }
 
 label {
