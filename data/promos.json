@@ -1,10 +1,10 @@
 {
     "TRHACK10": {
-        "discount": 10,
+        "discount": 2,
         "used": false
     },
     "HACK5": {
-        "discount": 5,
+        "discount": 1,
         "used": false
     }
 }
