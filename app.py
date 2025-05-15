@@ -92,6 +92,7 @@ elif page == "Produits":
         with col2:
             st.markdown(f"### {p['name']}")
             st.markdown(f"Goût : **{p['flavor']}**")
+            st.markdown(f"Descriptio, : **{p['desc']}**")
             st.markdown(f"**Prix : {p['price']}€**")
             st.markdown("---")
 
