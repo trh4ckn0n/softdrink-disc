@@ -1,35 +1,27 @@
-# --- IMPORTS ---
 import streamlit as st
 import json
 import os
-import requests
-from dotenv import load_dotenv
-import streamlit.components.v1 as components
 import random
 import string
 from datetime import datetime
+import requests
+import pandas as pd
 
-# --- CONFIGURATION GÉNÉRALE ---
-dotenv_path = ".env"
-if os.path.exists(dotenv_path):
-    load_dotenv(dotenv_path)
+# --- CONFIG ---
+st.set_page_config(page_title="Drink Commander", layout="centered")
+bot_token = "TON_TOKEN_TELEGRAM"
+chat_id = "TON_CHAT_ID_TELEGRAM"
 
-st.set_page_config(page_title="Trhacknon Energy", layout="wide")
-bot_token = os.getenv("BOT_TOKEN")
-chat_id = os.getenv("CHAT_ID")
+# --- FICHIERS ---
+PRODUCTS_FILE = "data/products.json"
+ORDERS_FILE = "data/orders.json"
+PROMOS_FILE = "data/promos.json"
 
-# --- STYLE PERSONNALISÉ ---
-def local_css(file_name):
-    with open(file_name) as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-
-local_css("assets/style.css")
-
-# --- FONCTIONS UTILITAIRES ---
-def load_json(file):
+# --- FONCTIONS FICHIER ---
+def load_json(file, default):
     if not os.path.exists(file):
         with open(file, "w") as f:
-            json.dump([] if "orders" in file else {}, f)
+            json.dump(default, f)
     with open(file, "r") as f:
         return json.load(f)
 
@@ -38,59 +30,40 @@ def save_json(file, data):
         json.dump(data, f, indent=4)
 
 def load_products():
-    return load_json("data/products.json")
+    return load_json(PRODUCTS_FILE, [])
 
 def load_orders():
-    return load_json("data/orders.json")
+    return load_json(ORDERS_FILE, {})
 
 def save_orders(data):
-    save_json("data/orders.json", data)
+    save_json(ORDERS_FILE, data)
 
 def load_promos():
-    return load_json("data/promos.json")
+    return load_json(PROMOS_FILE, {})
 
 def save_promos(data):
-    save_json("data/promos.json", data)
+    save_json(PROMOS_FILE, data)
 
-def generate_code(length=8):
+def generate_code(length=6):
     return ''.join(random.choices(string.ascii_uppercase + string.digits, k=length))
 
 def apply_promo(code, total):
     promos = load_promos()
-    if code in promos and not promos[code].get("used", False):
-        return max(total - promos[code]["discount"], 0), True
+    if code in promos and not promos[code]["used"]:
+        discount = promos[code]["discount"]
+        return max(total - discount, 0), True
     return total, False
 
-# --- SIDEBAR ---
-st.sidebar.markdown("<h1 style='color:#fff000; text-shadow:0 0 10px #0080ffa;'>Trhacknon</h1>", unsafe_allow_html=True)
-st.sidebar.markdown("""<img src="https://media4.giphy.com/media/3oKIPeS0xvkjaIL6BG/giphy.gif" width="100" />""", unsafe_allow_html=True)
-st.sidebar.markdown("## Menu")
-page = st.sidebar.radio("Navigation", ["Présentation", "Produits", "Commander", "Admin"])
+# --- UI ---
+menu = ["Accueil", "Commander", "Admin"]
+page = st.sidebar.selectbox("Navigation", menu)
 
-# --- PAGES ---
-if page == "Présentation":
-    st.title("Découvrez les bonnes affaires sur des boissons Énergétiques")
-    st.markdown("<h2 style='color:#0080ff; text-shadow:0 0 10px #ff073a;'>by Trhacknon</h2>", unsafe_allow_html=True)
-    st.markdown("""<div class='intro'>
-        **Boissons énergétiques rebelles pour les esprits libres.**  
-        Propulsé par un style hacker & l’esprit de résistance.
-    </div>""", unsafe_allow_html=True)
-    for img in os.listdir("images"):
-        if img.endswith((".jpeg", ".png")):
-            st.image(f"images/{img}", caption="Faites le plein d'énergie libre")
+# --- ACCUEIL ---
+if page == "Accueil":
+    st.title("Bienvenue sur Drink Commander")
+    st.markdown("**Choisis, commande et rafraîchis-toi !**")
 
-elif page == "Produits":
-    st.header("Nos Boissons")
-    for p in load_products():
-        col1, col2 = st.columns([1, 3])
-        with col1:
-            st.image(p["image"], width=100)
-        with col2:
-            st.markdown(f"### {p['name']}")
-            st.markdown(f"Goût : **{p['flavor']}**")
-            st.markdown(f"**Prix : {p['price']}€**")
-            st.markdown("---")
-
+# --- COMMANDER ---
 elif page == "Commander":
     st.header("Passe ta commande")
     products = load_products()
@@ -120,7 +93,10 @@ elif page == "Commander":
                 "total": round(total_applique, 2),
                 "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             }
-            commandes.append(commande)
+            if choix in commandes:
+                commandes[choix].append(commande)
+            else:
+                commandes[choix] = [commande]
             save_orders(commandes)
 
             promos = load_promos()
@@ -129,25 +105,43 @@ elif page == "Commander":
                 save_promos(promos)
 
             msg = f"Nouvelle commande de {nom} pour {quantite}x {choix} ({total_applique:.2f}€)\nContact: {contact}"
-            requests.get(f"https://api.telegram.org/bot{bot_token}/sendMessage?chat_id={chat_id}&text={msg}")
+            try:
+                requests.get(f"https://api.telegram.org/bot{bot_token}/sendMessage?chat_id={chat_id}&text={msg}")
+            except:
+                st.warning("Message non envoyé à Telegram.")
             st.success("Commande envoyée !")
         else:
             st.warning("Remplis tous les champs")
 
+# --- ADMIN ---
 elif page == "Admin":
     st.header("Interface Admin")
     pw = st.text_input("Mot de passe admin", type="password")
     if pw == "trhackadmin":
         st.success("Accès autorisé")
+
         st.subheader("Commandes")
         commandes = load_orders()
         if commandes:
-            st.table(commandes)
+            for produit, liste_commandes in commandes.items():
+                st.markdown(f"<h4 style='color:#ff073a;'>{produit} ({len(liste_commandes)} commande(s))</h4>", unsafe_allow_html=True)
+                for cmd in liste_commandes:
+                    st.markdown(f"- **{cmd['date']}** | {cmd['nom']} x{cmd['quantite']} | {cmd['total']}€ | {cmd['contact']}")
+
+            if st.button("Exporter en CSV"):
+                toutes = []
+                for produit, liste in commandes.items():
+                    for cmd in liste:
+                        toutes.append(cmd)
+                df = pd.DataFrame(toutes)
+                st.download_button("Télécharger CSV", df.to_csv(index=False).encode("utf-8"), file_name="commandes.csv", mime="text/csv")
         else:
             st.info("Aucune commande enregistrée")
 
         if st.button("Réinitialiser commandes"):
-            save_orders([])
+            produits = load_products()
+            empty_structure = {p["name"]: [] for p in produits}
+            save_orders(empty_structure)
             st.success("Commandes supprimées.")
 
         st.subheader("Promos")
@@ -162,26 +156,3 @@ elif page == "Admin":
             st.success(f"Code généré : {code}")
     else:
         st.warning("Accès restreint")
-
-# --- FOOTER ---
-st.markdown("""
-<div id="custom-footer">
-    by <strong>trhacknon</strong> | énergie libre &bull; style hacker
-</div>
-""", unsafe_allow_html=True)
-
-components.html("""
-<script>
-const footer = document.getElementById("custom-footer");
-document.addEventListener("scroll", () => {
-    const scrollTop = window.scrollY;
-    const windowHeight = window.innerHeight;
-    const bodyHeight = document.body.scrollHeight;
-    if (scrollTop + windowHeight >= bodyHeight - 30) {
-        footer.classList.add("visible");
-    } else {
-        footer.classList.remove("visible");
-    }
-});
-</script>
-""", height=0)
