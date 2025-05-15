@@ -133,7 +133,7 @@ p, .stMarkdown, .css-1cpxqw2 {
 /* ======================== */
 
 h1, .css-10trblm {
-    color: #ff073a !important;
+    color: #79F8F8 !important;
     animation: glitch 2s infinite;
 }
 
@@ -152,7 +152,7 @@ h2 {
 }
 
 h1:hover {
-    text-shadow: 0 0 10px #9b00ff, 0 0 20px #ff6600;
+    text-shadow: 0 0 10px #9b00ff, 0 0 20px #79F8F8;
     animation: glitch-footer 4s infinite;
 }
 
@@ -212,7 +212,7 @@ h3 {
 }
 
 .sidebar-hacker h1 {
-    color: #0080ff;
+    color: #FF00FF;
     text-shadow: 0 0 5px #ff0000;
 }
 
@@ -305,7 +305,7 @@ button:hover {
 }
 
 .css-1d391kg h1 {
-    color: #ff073a !important;
+    color: #FD3F92 !important;
     text-shadow: 0 0 6px #ff073a;
 }
 
