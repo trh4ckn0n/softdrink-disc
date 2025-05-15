@@ -149,7 +149,7 @@ elif page == "Admin":
         st.subheader("Codes promos")
         promos = load_promos()
         for code, infos in promos.items():
-            st.markdown(f"- {code} | -{infos['discount']}€ | utilisé: {infos.get('used', False)}")
+            st.markdown(f"- {code} | -{infos['discount']:.2f}€ | utilisé: {infos.get('used', False)}")
 
         # Nouveau : input pour choisir le montant du code promo
         discount_value = st.number_input("Montant de la réduction (€)", min_value=0.1, max_value=100.0, value=1.0, step=0.1, format="%.2f")
@@ -158,7 +158,7 @@ elif page == "Admin":
             code = generate_code()
             promos[code] = {"discount": float(discount_value), "used": False}
             save_promos(promos)
-            st.success(f"Code promo généré : {code} (-{discount_value}€)")
+            st.success(f"Code promo généré : {code} (-{discount_value:.2f}€)")
     else:
         st.warning("Mot de passe requis pour l'accès admin.")
 
