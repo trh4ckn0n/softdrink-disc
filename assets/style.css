@@ -145,7 +145,7 @@ _terminalButton_rix23_138 {
 }
 
 h2 {
-    color: #191970 !important;
+    color: #00CCCB !important;
     text-shadow: 0 0 10px #ff0000, 0 0 20px #ff073a;
     animation: shake-footer 0.1s infinite, glitch-footer 0.1s infinite;
 
@@ -178,7 +178,7 @@ h3 {
 }
 
 .intro {
-    color: #00ffcc;
+    color: #00CCCB;
     text-shadow: 0 0 10px #00ffcc;
     animation: typing 4s steps(30, end), blink-caret 0.75s step-end infinite;
     white-space: nowrap;
@@ -207,12 +207,12 @@ h3 {
 }
 
 .sidebar-hacker h2 {
-    color: #191970;
+    color: #00CCCB;
     text-shadow: 0 0 5px #fff000;
 }
 
 .sidebar-hacker h1 {
-    color: #FF00FF;
+    color: #DFFF00;
     text-shadow: 0 0 5px #ff0000;
 }
 
@@ -291,7 +291,7 @@ button:hover {
 }
 
 .css-1kyxreq {
-    color: #f0f0f0;
+    color: #DFFF00;
     font-style: italic;
 }
 
