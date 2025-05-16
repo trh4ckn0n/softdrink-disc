@@ -75,11 +75,11 @@ if page == "Présentation":
     st.title("Découvrez les bonnes affaires sur des boissons Energetiques")
     st.markdown("<h2 style='color:#0080ff; text-shadow:0 0 10px #ff073a;'>by Trhacknon</h2>", unsafe_allow_html=True)
     st.markdown("""
-        <div class='intro'>
-        **Boissons énergétiques rebelles pour les esprits libres.**  
-        Propulsé par un style hacker & l’esprit de résistance.
-        </div>
-    """, unsafe_allow_html=True)
+    <div class='intro-wrapper'>
+        <div class='intro'>Boissons énergétiques rebelles pour les esprits libres.</div>
+        <div class='intro'>Propulsé par un style hacker & l’esprit de résistance.</div>
+    </div>
+""", unsafe_allow_html=True)
     for img in ["redbull_apricot.jpeg", "redbull_winter.jpeg", "redbull_summer.jpeg", "redbull_purple.jpeg", "redbull_spring.png", "redbull_sea_blue.jpeg"]:
         st.image(f"images/{img}", caption="Faites le plein d'énergie libre")
 
