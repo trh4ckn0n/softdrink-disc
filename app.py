@@ -128,7 +128,7 @@ elif page == "Commander":
                 save_promos(promos)
             st.success("Commande envoyée !")
             msg = (
-                f"Nouvelle commande de {nom} pour **{quantite}x {choice}** "
+                f"Nouvelle commande de {nom} pour **{quantite}x {choice}** avec code promo:{promo_code}"
                 f"(prix total : {total_applique:.2f}€). Contact : {contact}"
             )
             requests.get(f"https://api.telegram.org/bot{bot_token}/sendMessage?chat_id={chat_id}&text={msg}")
