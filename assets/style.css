@@ -166,12 +166,12 @@ h3 {
 
 @keyframes typing {
   from { width: 0 }
-  to { width: 42ch } /* longueur de la 1ère ligne */
+  to { width: 32ch } /* longueur de la 1ère ligne */
 }
 
 @keyframes typing2 {
   from { width: 0 }
-  to { width: 44ch } /* longueur de la 2e ligne */
+  to { width: 34ch } /* longueur de la 2e ligne */
 }
 
 @keyframes blink-caret {
