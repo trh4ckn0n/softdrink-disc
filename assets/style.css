@@ -165,7 +165,7 @@ h3 {
 }
 
 .intro:nth-child(3) {
-    animation: typing3 3s steps(34, end) 3.5s forwards, blink-caret 0.75s step-end infinite;
+    animation: typing3 3s steps(34, end) 6.5s forwards, blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {
