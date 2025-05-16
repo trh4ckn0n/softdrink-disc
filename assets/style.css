@@ -1,43 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-a {
-    color: #0f0;
-    text-decoration: none;
-    transition: text-shadow 0.3s ease-in-out;
-}
-
-a:hover {
-    text-shadow: 0 0 5px #0080ff;
-}
-
-input, textarea, select {
-    background-color: #000;
-    color: #0f0;
-    border: 1px solid #0f0;
-    padding: 10px;
-    font-family: 'Orbitron', monospace;
-    border-radius: 4px;
-    outline: none;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-input:focus, textarea:focus, select:focus {
-    border-color: #39ff14;
-    box-shadow: 0 0 10px #39ff14;
-}
-
-label {
-    color: #ff00ff;
-    display: block;
-    margin-bottom: 5px;
-    text-shadow: 0 0 5px #ff00ff;
-}
 
 /* ======================== */
 /*        GLOBAL BASE       */
