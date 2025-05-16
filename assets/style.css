@@ -165,7 +165,7 @@ h3 {
 }
 
 .intro:nth-child(3) {
-    animation: typing3 3s steps(36, end) 3.5s forwards, blink-caret 0.75s step-end infinite;
+    animation: typing3 3s steps(34, end) 3.5s forwards, blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {
@@ -180,7 +180,7 @@ h3 {
 
 @keyframes typing3 {
   from { width: 0 }
-  to { width: 36ch } /* longueur de la 2e ligne */
+  to { width: 34ch } /* longueur de la 2e ligne */
 }
 
 @keyframes blink-caret {
