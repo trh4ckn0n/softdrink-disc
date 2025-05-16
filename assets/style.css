@@ -164,14 +164,23 @@ h3 {
     animation: typing2 3s steps(44, end) 3.5s forwards, blink-caret 0.75s step-end infinite;
 }
 
+.intro:nth-child(3) {
+    animation: typing3 3s steps(24, end) 3.5s forwards, blink-caret 0.75s step-end infinite;
+}
+
 @keyframes typing {
   from { width: 0 }
-  to { width: 32ch } /* longueur de la 1ère ligne */
+  to { width: 42ch } /* longueur de la 1ère ligne */
 }
 
 @keyframes typing2 {
   from { width: 0 }
-  to { width: 34ch } /* longueur de la 2e ligne */
+  to { width: 44ch } /* longueur de la 2e ligne */
+}
+
+@keyframes typing3 {
+  from { width: 0 }
+  to { width: 24ch } /* longueur de la 2e ligne */
 }
 
 @keyframes blink-caret {
